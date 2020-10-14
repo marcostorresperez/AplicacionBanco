@@ -8,6 +8,7 @@ import android.widget.TextView;
 public class PrincipalActivity extends AppCompatActivity {
 
     private TextView nombre;
+    private Button cerrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,5 +17,10 @@ public class PrincipalActivity extends AppCompatActivity {
         String nombreRecibido=getIntent().getStringExtra("nombre");
         nombre=findViewById(R.id.txtNombre);
         nombre.setText(nombreRecibido);
+    }
+
+    protected void sePulsa(View v){
+        Intent intent= new Intent(PrincipalActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 }
