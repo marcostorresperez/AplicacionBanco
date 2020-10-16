@@ -1,7 +1,9 @@
 package matope.simarro.pmdm_t3p9_torres_marcos;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,11 +35,24 @@ public class ClaveActivity extends AppCompatActivity {
             Toast toast1 = Toast.makeText(getApplicationContext(), "La nueva clave no puede ser igual a la actual", Toast.LENGTH_SHORT);
             toast1.show();
         } else if (claveNueva1.getText().toString().equals(claveNueva2.getText().toString())) {
-            Toast toast1 = Toast.makeText(getApplicationContext(), "Clave cambiada con éxito", Toast.LENGTH_SHORT);
-            toast1.show();
+            AlertDialog.Builder builder= new AlertDialog.Builder(this);
+            builder.setTitle("Confirmar cambios");
+            builder.setMessage("¿Está seguro de querer cambiar su clave?");
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Clave cambiada con éxito", Toast.LENGTH_SHORT);
+                    toast1.show();
 
-            Intent intent = new Intent(ClaveActivity.this, PrincipalActivity.class);
-            startActivity(intent);
+                    Intent intent = new Intent(ClaveActivity.this, PrincipalActivity.class);
+                    startActivity(intent);
+
+                }
+            });
+            builder.setNegativeButton("Cancelar",null);
+            AlertDialog dialog= builder.create();
+            dialog.show();
+
 
         } else {
             Toast toast1 = Toast.makeText(getApplicationContext(), "La clave de confirmación debe ser la misma", Toast.LENGTH_SHORT);
