@@ -18,15 +18,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        txtUsuario = findViewById(R.id.txtUser);
+        txtContra= findViewById(R.id.textPass);
 
-        txtUser = findViewById(R.id.txtUser);
-        txtPass = findViewById(R.id.txtPass);
-        nombre = txtUser.getText().toString();
     }
 
     public void sePulsa(View v) {
+        nombre = txtUsuario.getText().toString();
+
         Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
         intent.putExtra("nombre", nombre);
+
         startActivity(intent);
     }
 }
