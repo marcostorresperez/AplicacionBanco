@@ -46,8 +46,7 @@ public class ClaveActivity extends AppCompatActivity {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "Clave cambiada con éxito", Toast.LENGTH_SHORT);
                     toast1.show();
 
-                    Intent intent = new Intent(ClaveActivity.this, PrincipalActivity.class);
-                    startActivity(intent);
+                  finish();
 
                 }
             });

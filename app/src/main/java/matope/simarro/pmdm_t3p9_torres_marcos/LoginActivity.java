@@ -8,12 +8,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class LoginActivity extends AppCompatActivity {
+    public static final String REGEX_DNI = "^[0-9]{8,8}[A-Za-z]$";
 
     private Button btnLogin;
     private EditText txtUsuario, txtContra;
     private String nombre;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +28,27 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         txtUsuario = findViewById(R.id.txtUser);
-        txtContra= findViewById(R.id.textPass);
+        txtContra = findViewById(R.id.textPass);
 
     }
 
     public void sePulsa(View v) {
-        nombre = txtUsuario.getText().toString();
+        Pattern patron = Pattern.compile(REGEX_DNI, Pattern.CASE_INSENSITIVE);
+        Matcher mat = patron.matcher(txtUsuario.getText().toString());
+        if (!mat.matches()) {
 
-        Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
-        intent.putExtra("nombre", nombre);
+            Toast toast = Toast.makeText(getApplicationContext(), "Introduce un DNI válido", Toast.LENGTH_SHORT);
+            toast.show();
+        } else if (txtContra.length() != 4) {
 
-        startActivity(intent);
+            Toast toast = Toast.makeText(getApplicationContext(), "La clave debe ser de 4 dígitos", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            nombre = txtUsuario.getText().toString();
+
+            Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
+            intent.putExtra("nombre", nombre);
+            startActivity(intent);
+        }
     }
 }
