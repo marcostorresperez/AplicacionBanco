@@ -1,12 +1,10 @@
-package matope.simarro.pmdm_t4p11_torres_marcos;
+package matope.simarro.pmdm_t3p9_torres_marcos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import matope.simarro.pmdm_t3p9_torres_marcos.R;
 
 
 public class MainActivity extends AppCompatActivity {

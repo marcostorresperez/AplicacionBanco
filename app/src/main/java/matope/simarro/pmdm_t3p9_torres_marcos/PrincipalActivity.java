@@ -1,4 +1,4 @@
-package matope.simarro.pmdm_t4p11_torres_marcos;
+package matope.simarro.pmdm_t3p9_torres_marcos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import matope.simarro.pmdm_t3p9_torres_marcos.R;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -32,6 +30,11 @@ public class PrincipalActivity extends AppCompatActivity {
 
     public void btnClave(View v){
         Intent intent= new Intent(PrincipalActivity.this,ClaveActivity.class);
+        startActivity(intent);
+    }
+
+    public void btnTransferencias(View v) {
+        Intent intent = new Intent(PrincipalActivity.this, TransferenciasActivity.class);
         startActivity(intent);
     }
 }
