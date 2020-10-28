@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".PrincipalActivity">
+    tools:context="matope.simarro.pmdm_t4p11_torres_marcos.PrincipalActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
