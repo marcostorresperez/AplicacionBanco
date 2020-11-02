@@ -21,6 +21,7 @@ public class PrincipalActivity extends AppCompatActivity {
         String nombreRecibido=getIntent().getStringExtra("nombre");
         nombre=findViewById(R.id.txtNombre);
         nombre.setText(nombreRecibido);
+
     }
 
     public void btnCerrar(View v){
@@ -37,4 +38,6 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(PrincipalActivity.this, TransferenciasActivity.class);
         startActivity(intent);
     }
+
+
 }

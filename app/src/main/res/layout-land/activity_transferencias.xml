@@ -11,7 +11,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Realizar Transferencias"
         android:textColor="@color/textos"
         android:textSize="30sp"
@@ -23,10 +23,10 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Cuenta origen"
         android:textColor="@color/textos"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -38,7 +38,7 @@
         android:layout_marginTop="16dp"
         android:text="Cuenta destino"
         android:textColor="@color/textos"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/origen" />
@@ -52,9 +52,9 @@
 
     <GridView
         android:id="@+id/origen"
-        android:layout_width="399dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="373dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,49 +132,49 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Importe"
         android:textColor="@color/textos"
-        android:textSize="24sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/importe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="198dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
+        android:imeOptions="actionDone"
         android:inputType="number"
         android:textAlignment="center"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        android:imeOptions="actionDone"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Spinner
         android:id="@+id/divisa"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="53dp"
+        android:layout_height="32dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/importe"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <CheckBox
         android:id="@+id/justificante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:buttonTint="@color/textos"
+        android:imeOptions="actionDone"
         android:text="Generar justificante"
         android:textColor="@color/textos"
-        android:textSize="24sp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/importe"
-        android:imeOptions="actionDone" />
+        app:layout_constraintTop_toBottomOf="@+id/importe" />
 
     <Button
         android:id="@+id/aceptar"
@@ -182,7 +182,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="24dp"
         android:onClick="ok"
         android:text="OK"
         android:textSize="24sp"
@@ -195,7 +195,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="24dp"
         android:onClick="cancelar"
         android:text="Cancelar"
         android:textSize="18sp"

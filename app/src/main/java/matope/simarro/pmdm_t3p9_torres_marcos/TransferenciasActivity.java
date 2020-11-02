@@ -112,25 +112,32 @@ public class TransferenciasActivity extends AppCompatActivity {
     public void ok(View v) {
         String cuenta = "";
         String marca = "";
+        String comp = "";
         if (radio1.isChecked()) {
             cuenta = "(Propia) " + destino.getSelectedItem().toString();
+            comp = destino.getSelectedItem().toString();
         } else if (radio2.isChecked()) {
             cuenta = "(Ajena) " + txtDestino.getText().toString();
+            comp = "ES " + txtDestino.getText().toString();
         }
 
-        if (seleccionado==null || cuenta.equals("")|| importe.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Hay opciones sin completar", Toast.LENGTH_SHORT).show();
+        if (seleccionado.getText().toString().equals(comp)) {
+            Toast.makeText(getApplicationContext(), "La cuenta de origen y destino es la misma", Toast.LENGTH_LONG).show();
         } else {
-            if (marcado) {
-                marca = "SÍ";
-            } else {
-                marca = "NO";
-            }
+                if (seleccionado == null || cuenta.equals("") || importe.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Hay opciones sin completar", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (marcado) {
+                        marca = "SÍ";
+                    } else {
+                        marca = "NO";
+                    }
 
-            String datos = "Cuenta origen: " + seleccionado.getText().toString() + "\n" + "Cuenta destino:" + cuenta + "\n" + "Importe: " + importe.getText().toString() + divisa.getSelectedItem().toString() + "\n" + "Generar justificante: " + marca;
-            Toast.makeText(getApplicationContext(), datos, Toast.LENGTH_LONG).show();
+                    String datos = "Cuenta origen: " + seleccionado.getText().toString() + "\n" + "Cuenta destino:" + cuenta + "\n" + "Importe: " + importe.getText().toString() + divisa.getSelectedItem().toString() + "\n" + "Generar justificante: " + marca;
+                    Toast.makeText(getApplicationContext(), datos, Toast.LENGTH_LONG).show();
+                }
         }
-   }
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void cancelar(View v) {
