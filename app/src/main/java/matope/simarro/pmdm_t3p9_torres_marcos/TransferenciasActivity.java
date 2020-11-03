@@ -23,6 +23,11 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
 
 public class TransferenciasActivity extends AppCompatActivity {
 
@@ -34,6 +39,11 @@ public class TransferenciasActivity extends AppCompatActivity {
     private TextView seleccionado = null;
     private CheckBox justificante;
     private boolean marcado = false;
+
+    private Cliente cliente;
+
+    MiBancoOperacional api=MiBancoOperacional.getInstance(this.getApplicationContext());
+    ArrayList<Cuenta> listaCuentas=api.getCuentas(cliente);
 
     @SuppressLint("WrongViewCast")
     @Override

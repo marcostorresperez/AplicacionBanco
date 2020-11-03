@@ -9,10 +9,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
+
 public class ClaveActivity extends AppCompatActivity {
 
     private EditText claveActual, claveNueva1, claveNueva2;
-
+    private Cliente cliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +41,33 @@ public class ClaveActivity extends AppCompatActivity {
             Toast toast1 = Toast.makeText(getApplicationContext(), "La nueva clave no puede ser igual a la actual", Toast.LENGTH_SHORT);
             toast1.show();
         } else if (claveNueva1.getText().toString().equals(claveNueva2.getText().toString())) {
-            AlertDialog.Builder builder= new AlertDialog.Builder(this);
-            builder.setTitle("Confirmar cambios");
-            builder.setMessage("¿Está seguro de querer cambiar su clave?");
-            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast toast1 = Toast.makeText(getApplicationContext(), "Clave cambiada con éxito", Toast.LENGTH_SHORT);
-                    toast1.show();
+            Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
+            final MiBancoOperacional api = MiBancoOperacional.getInstance(getApplicationContext());
+            if (claveActual.getText().toString().equals(cliente.getClaveSeguridad())) {
 
-                  finish();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Confirmar cambios");
+                builder.setMessage("¿Está seguro de querer cambiar su clave?");
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
+                        Toast toast1 = Toast.makeText(getApplicationContext(), "Clave cambiada con éxito", Toast.LENGTH_SHORT);
+                        toast1.show();
+                        cliente.setClaveSeguridad(claveNueva1.getText().toString());
+                        api.changePassword(cliente);
+                        finish();
 
-                }
-            });
-            builder.setNegativeButton("Cancelar",null);
-            AlertDialog dialog= builder.create();
-            dialog.show();
+                    }
+                });
+                builder.setNegativeButton("Cancelar", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
+            } else {
+                Toast toast1 = Toast.makeText(getApplicationContext(), "La clave antigua no es correcta", Toast.LENGTH_SHORT);
+                toast1.show();
+            }
 
         } else {
             Toast toast1 = Toast.makeText(getApplicationContext(), "La clave de confirmación debe ser la misma", Toast.LENGTH_SHORT);

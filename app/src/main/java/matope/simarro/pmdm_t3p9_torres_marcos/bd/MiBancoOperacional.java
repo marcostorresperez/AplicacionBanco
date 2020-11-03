@@ -11,7 +11,6 @@ import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Movimiento;
 
 public class MiBancoOperacional {
 
-
     private MiBD miBD;
 
     protected MiBancoOperacional(Context context){
@@ -90,4 +89,5 @@ public class MiBancoOperacional {
     public ArrayList<Movimiento> getMovimientosTipo(Cuenta c, int tipo){
         return miBD.getMovimientoDAO().getMovimientosTipo(c, tipo);
     }
+
 }
