@@ -1,51 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listasCuentas"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/listasCuentas">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Num Cuenta "
-            />
+            android:orientation="horizontal"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp">
 
-        <TextView
-            android:layout_width="0px"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Num Cuenta " />
+
+                <TextView
+                    android:id="@+id/numFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/numCuentas"
-            />
+            android:orientation="horizontal"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp">
 
-        <TextView
-        android:layout_width="0px"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Banco: "
-        />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saldo: " />
 
-        <TextView
-            android:layout_width="0px"
+                <TextView
+                    android:id="@+id/numDescripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/numBanco"
-            />
+            android:orientation="horizontal"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp">
 
-        <TextView
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Saldo: "
-            />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Banco: " />
 
-        <TextView
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/numSaldo"
-            />
+                <TextView
+                    android:id="@+id/numImporte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
 
-    </LinearLayout>
+</LinearLayout>
 

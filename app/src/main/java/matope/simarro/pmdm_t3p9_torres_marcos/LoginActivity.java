@@ -48,9 +48,9 @@ public class LoginActivity extends AppCompatActivity {
                 intent.putExtra("cliente", resultado);
                 startActivity(intent);
             } else
-                Toast.makeText(getApplicationContext(), "Introduce un DNI válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Datos de inicio de sesion incorrectos", Toast.LENGTH_SHORT).show();
         } else
-            Toast.makeText(getApplicationContext(), "Clave incorrecta", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Rellena todos los campos", Toast.LENGTH_LONG).show();
 
     }
 }

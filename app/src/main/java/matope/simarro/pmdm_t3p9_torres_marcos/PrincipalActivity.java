@@ -27,7 +27,7 @@ public class PrincipalActivity extends AppCompatActivity {
         Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 
         nombre = findViewById(R.id.txtNombre);
-        nombre.setText(cliente.getNif());
+        nombre.setText(cliente.getNombre());
 
     }
 

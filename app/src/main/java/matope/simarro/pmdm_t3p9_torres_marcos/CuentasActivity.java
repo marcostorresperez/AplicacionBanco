@@ -36,8 +36,8 @@ public class CuentasActivity extends AppCompatActivity {
         Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
         MiBancoOperacional api = MiBancoOperacional.getInstance(getApplicationContext());
 
-        origen=findViewById(R.id.cuentas);
-        cuentas= new CuentasAdapter<Cuenta>(this,api.getCuentas(cliente));
+        origen = findViewById(R.id.cuentas);
+        cuentas = new CuentasAdapter(this, api.getCuentas(cliente));
         origen.setAdapter((ListAdapter) cuentas);
 
 
@@ -45,11 +45,7 @@ public class CuentasActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (seleccionado != null) {
-                    seleccionado.setBackgroundColor(getColor(R.color.fondo));
-                }
-                view.setBackgroundColor(getColor(R.color.textos));
-                seleccionado = (TextView) view;
+
             }
         });
 

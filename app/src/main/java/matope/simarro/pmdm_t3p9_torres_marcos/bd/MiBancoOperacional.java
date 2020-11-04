@@ -37,7 +37,7 @@ public class MiBancoOperacional {
         Cliente aux = (Cliente) miBD.getClienteDAO().search(c);
         if(aux==null){
             return null;
-        }else if (aux.getClaveSeguridad().equals(c.getClaveSeguridad())){
+        }else if (aux.getClaveSeguridad().equalsIgnoreCase(c.getClaveSeguridad())){
             return aux;
         }else{
             return null;
