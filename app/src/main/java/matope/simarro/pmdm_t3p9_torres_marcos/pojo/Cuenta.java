@@ -82,7 +82,7 @@ public class Cuenta implements Serializable {
         this.listaMovimientos = new ArrayList<Movimiento>();
     }
 
-    public Cuenta(){
+    public Cuenta() {
         super();
     }
 
@@ -95,7 +95,7 @@ public class Cuenta implements Serializable {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "id: " + this.id + "\nbanco: " + this.banco + "\nsucursal: " + this.sucursal + "\ndc: " + this.dc + "\nnumero cuenta: " +
                 this.numeroCuenta + "\nid cliente: " + this.cliente.getId() + "\nsaldo actual: " + this.saldoActual;
     }

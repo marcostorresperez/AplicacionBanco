@@ -11,7 +11,7 @@
         style="@style/textos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:text="Cuentas"
         android:textColor="@color/textos"
         android:textSize="36sp"
@@ -23,10 +23,10 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Selecciona una de tus Cuentas"
         android:textColor="@color/textos"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -35,11 +35,13 @@
         android:id="@+id/cuentas"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" >
+
+    </ListView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
@@ -48,12 +50,56 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
+    <TextView
+        android:id="@+id/txtMovs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Movimientos"
+        android:textColor="@color/textos"
+        android:textSize="64sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cuentas" />
+
+    <TextView
+        android:id="@+id/txtNoMovs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="¡OH,VAYA!"
+        android:textAlignment="center"
+        android:textColor="@color/textos"
+        android:textSize="64sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMovs" />
+
+    <TextView
+        android:id="@+id/txtNoMovs2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Parece que no tienes movimientos en esta cuenta"
+        android:textColor="@color/textos"
+        android:textSize="28sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNoMovs" />
+
     <ListView
         android:id="@+id/movimientos"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMovs">
+
+    </ListView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

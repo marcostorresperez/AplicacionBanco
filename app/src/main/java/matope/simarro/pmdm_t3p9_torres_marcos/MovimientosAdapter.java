@@ -1,5 +1,6 @@
 package matope.simarro.pmdm_t3p9_torres_marcos;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -7,6 +8,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -18,8 +20,8 @@ public class MovimientosAdapter<T> extends ArrayAdapter<T> {
 
     private ArrayList<Movimiento> movimientos;
 
-    public MovimientosAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
+    public MovimientosAdapter(Context context, ArrayList<T> resource) {
+        super(context, 0, resource);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -35,8 +37,8 @@ public class MovimientosAdapter<T> extends ArrayAdapter<T> {
         TextView numImporte = listItemView.findViewById(R.id.numImporte);
 
         Movimiento movimiento = (Movimiento) getItem(position);
-
-        numFecha.setText((CharSequence) movimiento.getFechaOperacion());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        numFecha.setText(sdf.format(movimiento.getFechaOperacion()));
         numDescripcion.setText(String.valueOf(movimiento.getDescripcion()));
         if (movimiento.getImporte() <= 0) {
             numImporte.setTextColor(Color.RED);

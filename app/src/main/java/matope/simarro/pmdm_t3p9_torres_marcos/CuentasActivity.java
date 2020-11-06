@@ -3,12 +3,14 @@ package matope.simarro.pmdm_t3p9_torres_marcos;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,7 +26,7 @@ import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Movimiento;
 
 public class CuentasActivity extends AppCompatActivity {
-    private ListView origen;
+    private ListView origen, listaMovs;
     private TextView seleccionado = null;
     CuentasAdapter<Cuenta> cuentas;
     MovimientosAdapter<Movimiento> movimientos;
@@ -47,10 +49,26 @@ public class CuentasActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
-                MiBancoOperacional api = MiBancoOperacional.getInstance(getApplicationContext());
+                TextView movs = findViewById(R.id.txtMovs);
+                movs.setVisibility(View.VISIBLE);
+                TextView txtNoMovs = findViewById(R.id.txtNoMovs);
+                TextView txtNoMovs2 = findViewById(R.id.txtNoMovs2);
 
-                movimientos = new MovimientosAdapter(this,api.getMovimientos(this.onItemClick(););
+                Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
+                Cuenta cuenta = cuentas.getItem(i);
+                MiBancoOperacional api = MiBancoOperacional.getInstance(getApplicationContext());
+                listaMovs = findViewById(R.id.movimientos);
+                movimientos = new MovimientosAdapter(getApplicationContext(), api.getMovimientos(cuenta));
+                listaMovs.setAdapter((ListAdapter) movimientos);
+                ArrayList<Movimiento> listaMovimientos = api.getMovimientos(cuenta);
+                if (listaMovimientos.size() == 0) {
+                    txtNoMovs.setVisibility(View.VISIBLE);
+                    txtNoMovs2.setVisibility(View.VISIBLE);
+                }else{
+                    txtNoMovs.setVisibility(View.GONE);
+                    txtNoMovs2.setVisibility(View.GONE);
+                }
+
             }
         });
 
