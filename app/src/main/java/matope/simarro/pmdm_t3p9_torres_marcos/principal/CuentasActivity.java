@@ -1,26 +1,22 @@
-package matope.simarro.pmdm_t3p9_torres_marcos;
+package matope.simarro.pmdm_t3p9_torres_marcos.principal;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
+import matope.simarro.pmdm_t3p9_torres_marcos.R;
+import matope.simarro.pmdm_t3p9_torres_marcos.adaptador.CuentasAdapter;
+import matope.simarro.pmdm_t3p9_torres_marcos.adaptador.MovimientosAdapter;
 import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
-import matope.simarro.pmdm_t3p9_torres_marcos.dao.CuentaDAO;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Movimiento;

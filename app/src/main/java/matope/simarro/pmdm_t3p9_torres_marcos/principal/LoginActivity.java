@@ -1,4 +1,4 @@
-package matope.simarro.pmdm_t3p9_torres_marcos;
+package matope.simarro.pmdm_t3p9_torres_marcos.principal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,13 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import matope.simarro.pmdm_t3p9_torres_marcos.R;
 import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
-import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
 
 
 public class LoginActivity extends AppCompatActivity {

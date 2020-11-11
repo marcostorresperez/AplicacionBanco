@@ -1,4 +1,4 @@
-package matope.simarro.pmdm_t3p9_torres_marcos;
+package matope.simarro.pmdm_t3p9_torres_marcos.principal;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,7 @@ import org.w3c.dom.Text;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import matope.simarro.pmdm_t3p9_torres_marcos.R;
 import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
