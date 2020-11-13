@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/FrgDetalle"
-    class="matope.simarro.pmdm_t4a13_marcos_torres.fragment.Activity_Fragment_Cancion"
+    class="matope.simarro.pmdm_t3p9_torres_marcos.fragment.Activity_Fragment_Movimientos"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />

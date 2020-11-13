@@ -24,14 +24,14 @@ public class MovimientosAdapter extends ArrayAdapter<Movimiento> {
     ArrayList<Movimiento> listaMovimientos;
 
     public MovimientosAdapter(Fragment context, ArrayList<Movimiento> listaMovimientos) {
-        super(context.getActivity(),R.layout.movimientosview,listaMovimientos);
+        super(context.getActivity(),R.layout.layout_elemento_movimiento_lista,listaMovimientos);
    this.context=context.getActivity();
    this.listaMovimientos=listaMovimientos;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View item = inflater.inflate(R.layout.movimientosview,null);
+        View item = inflater.inflate(R.layout.layout_elemento_movimiento_lista,null);
 
         TextView numFecha = item.findViewById(R.id.numFecha);
         TextView numDescripcion = item.findViewById(R.id.numDescripcion);

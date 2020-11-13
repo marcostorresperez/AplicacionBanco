@@ -24,14 +24,14 @@ public class CuentasAdapter extends ArrayAdapter<Cuenta> {
     ArrayList<Cuenta> listaCuentas;
 
     public CuentasAdapter(Fragment context, ArrayList<Cuenta> listaCuentas) {
-        super(context.getActivity(), R.layout.cuentasview, listaCuentas);
+        super(context.getActivity(), R.layout.layout_elemento_cuenta_lista, listaCuentas);
         this.context = context.getActivity();
         this.listaCuentas = listaCuentas;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View item = inflater.inflate(R.layout.cuentasview, null);
+        View item = inflater.inflate(R.layout.layout_elemento_cuenta_lista, null);
 
         TextView numCuentas = item.findViewById(R.id.numFecha);
         TextView numSaldo = item.findViewById(R.id.numDescripcion);
