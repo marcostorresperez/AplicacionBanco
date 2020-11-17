@@ -4,16 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    <fragment
         android:id="@+id/FrgListado"
         class="matope.simarro.pmdm_t3p9_torres_marcos.fragment.Activity_Fragment_Cuentas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    <fragment
         android:id="@+id/FrgDetalle"
         class="matope.simarro.pmdm_t3p9_torres_marcos.fragment.Activity_Fragment_Movimientos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
 
 </LinearLayout>
