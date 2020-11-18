@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">pmdm-t3p9-Torres-Marcos</string>
+    <string name="app_name">Banco Marcos Torres</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

@@ -5,8 +5,42 @@
     android:background="#FFBBBBBB"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView14"
+        style="@style/textos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:text="Movimientos"
+        android:textAlignment="center"
+        android:textColor="@color/textos"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtNoMovs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="¡OH,VAYA!"
+        android:textAlignment="center"
+        android:textColor="@color/textos"
+        android:textSize="36sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txtNoMovs2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Parece que no tienes movimientos en esta cuenta"
+        android:textAlignment="center"
+        android:textColor="@color/textos"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/LstDetalle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"></ListView>
 </LinearLayout>
