@@ -1,5 +1,7 @@
 package matope.simarro.pmdm_t3p9_torres_marcos.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +38,7 @@ public class Activity_Fragment_Movimientos extends Fragment {
         if (lstDetalle.getAdapter().isEmpty()) {
             texto.setVisibility(View.VISIBLE);
             texto2.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             texto.setVisibility(View.GONE);
             texto2.setVisibility(View.GONE);
         }
@@ -45,8 +47,21 @@ public class Activity_Fragment_Movimientos extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> list, View view, int pos, long id) {
                 Movimiento movimiento = (Movimiento) lstDetalle.getAdapter().getItem(pos);
-                String texto = movimiento.getDescripcion() + "\n" + "Origen" + movimiento.getCuentaOrigen() + "\n" + "Destino: " + movimiento.getCuentaDestino() + "\n" + "Importe:_" + movimiento.getImporte();
-                Toast.makeText(getContext(), texto, Toast.LENGTH_LONG).show();
+                String texto = movimiento.getDescripcion() + "\n" + "Origen" + movimiento.getCuentaOrigen() + "\n" + "Destino: " + movimiento.getCuentaDestino() + "\n" + "Importe: " + movimiento.getImporte();
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), R.style.dialogs);
+                LayoutInflater inflater= getActivity().getLayoutInflater();
+                builder.setMessage(texto);
+                builder.setTitle("Info Movimiento");
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }

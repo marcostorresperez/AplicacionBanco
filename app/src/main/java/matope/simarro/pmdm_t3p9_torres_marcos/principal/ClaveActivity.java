@@ -46,7 +46,7 @@ public class ClaveActivity extends AppCompatActivity {
             final MiBancoOperacional api = MiBancoOperacional.getInstance(getApplicationContext());
             if (claveActual.getText().toString().equals(cliente.getClaveSeguridad())) {
 
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.dialogs);
                 builder.setTitle("Confirmar cambios");
                 builder.setMessage("¿Está seguro de querer cambiar su clave?");
                 builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {

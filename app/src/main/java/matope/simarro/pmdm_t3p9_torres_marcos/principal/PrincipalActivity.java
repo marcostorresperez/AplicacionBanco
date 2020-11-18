@@ -14,7 +14,6 @@ import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
 public class PrincipalActivity extends AppCompatActivity {
 
     private TextView nombre;
-    private Button cerrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
