@@ -35,106 +35,56 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Cuenta destino"
         android:textColor="@color/textos"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/origen" />
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.32" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <GridView
         android:id="@+id/origen"
-        android:layout_width="373dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
     </GridView>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
+    <GridView
+        android:id="@+id/destino"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:layout_weight="1"
-            android:text="Propias"
-            android:textSize="24sp" />
-
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:layout_weight="1"
-            android:text="Ajenas"
-            android:textSize="24sp" />
-
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/destino"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:hint="ES"
-        android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:textColor="@color/textos"
-        android:textSize="24sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <Spinner
-        android:id="@+id/spinnerDestino"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+    </GridView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.54" />
+        app:layout_constraintGuide_percent="0.61" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="Importe"
         android:textColor="@color/textos"
         android:textSize="24sp"

@@ -63,7 +63,7 @@ public class Cuenta implements Serializable {
         this.listaMovimientos = listaMovimientos;
     }
 
-    public int getId() {
+    public Cuenta getId() {
         return id;
     }
 

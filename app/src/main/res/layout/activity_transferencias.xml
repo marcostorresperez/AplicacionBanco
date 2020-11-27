@@ -52,8 +52,8 @@
 
     <GridView
         android:id="@+id/origen"
-        android:layout_width="399dp"
-        android:layout_height="75dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,64 +62,16 @@
 
     </GridView>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
+    <GridView
+        android:id="@+id/destino"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:layout_weight="1"
-            android:text="Propias" />
-
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10sp"
-            android:layout_weight="1"
-            android:text="Ajenas" />
-
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/destino"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:hint="ES"
-        android:textAlignment="center"
-        android:textColor="@color/textos"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        android:imeOptions="actionDone"
-        android:singleLine="true"/>
-
-    <Spinner
-        android:id="@+id/spinnerDestino"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+    </GridView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"

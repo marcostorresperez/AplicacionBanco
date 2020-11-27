@@ -1,6 +1,7 @@
 package matope.simarro.pmdm_t3p9_torres_marcos.bd;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.util.Log;
 import matope.simarro.pmdm_t3p9_torres_marcos.dao.ClienteDAO;
 import matope.simarro.pmdm_t3p9_torres_marcos.dao.CuentaDAO;
 import matope.simarro.pmdm_t3p9_torres_marcos.dao.MovimientoDAO;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Movimiento;
 
 
 public class MiBD extends SQLiteOpenHelper {
@@ -22,7 +25,7 @@ public class MiBD extends SQLiteOpenHelper {
             "apellidos STRING, claveSeguridad STRING, email STRING);";
     //Instruccion SQL para crear la tabla de Cuentas
     private String sqlCreacionCuentas = "CREATE TABLE cuentas ( id INTEGER PRIMARY KEY AUTOINCREMENT, banco STRING, sucursal STRING, " +
-            "dc STRING, numerocuenta STRING, saldoactual FLOAT, idcliente INTEGER);" ;
+            "dc STRING, numerocuenta STRING, saldoactual FLOAT, idcliente INTEGER);";
     //Instruccion SQL para crear la tabla de movimientos
     private String sqlCreacionMovimientos = "CREATE TABLE movimientos ( id INTEGER PRIMARY KEY AUTOINCREMENT, tipo INTEGER, fechaoperacion LONG," +
             " descripcion STRING, importe FLOAT, idcuentaorigen INTEGER, idcuentadestino INTEGER);";
@@ -48,7 +51,7 @@ public class MiBD extends SQLiteOpenHelper {
     private static MovimientoDAO movimientoDAO;
 
     public static MiBD getInstance(Context context) {
-        if(instance == null) {
+        if (instance == null) {
             instance = new MiBD(context);
             db = instance.getWritableDatabase();
             clienteDAO = new ClienteDAO();
@@ -58,16 +61,21 @@ public class MiBD extends SQLiteOpenHelper {
         return instance;
     }
 
-    public static SQLiteDatabase getDB(){
+    public static SQLiteDatabase getDB() {
         return db;
     }
-    public static void closeDB(){db.close();};
+
+    public static void closeDB() {
+        db.close();
+    }
+
+    ;
 
     /**
      * Constructor de clase
-     * */
+     */
     protected MiBD(Context context) {
-        super( context, database, null, version );
+        super(context, database, null, version);
     }
 
     @Override
@@ -81,25 +89,24 @@ public class MiBD extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade( SQLiteDatabase db,  int oldVersion, int newVersion ) {
-        Log.i("SQLite", "Control de versiones: Old Version=" + oldVersion + " New Version= " + newVersion  );
-        if ( newVersion > oldVersion )
-        {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.i("SQLite", "Control de versiones: Old Version=" + oldVersion + " New Version= " + newVersion);
+        if (newVersion > oldVersion) {
             //elimina tabla
-            db.execSQL( "DROP TABLE IF EXISTS clientes" );
-            db.execSQL( "DROP TABLE IF EXISTS cuentas" );
-            db.execSQL( "DROP TABLE IF EXISTS movimientos" );
+            db.execSQL("DROP TABLE IF EXISTS clientes");
+            db.execSQL("DROP TABLE IF EXISTS cuentas");
+            db.execSQL("DROP TABLE IF EXISTS movimientos");
             //y luego creamos la nueva tabla
             db.execSQL(sqlCreacionClientes);
             db.execSQL(sqlCreacionCuentas);
             db.execSQL(sqlCreacionMovimientos);
 
             insercionDatos(db);
-            Log.i("SQLite", "Se actualiza versión de la base de datos, New version= " + newVersion  );
+            Log.i("SQLite", "Se actualiza versión de la base de datos, New version= " + newVersion);
         }
     }
 
-    private void insercionDatos(SQLiteDatabase db){
+    private void insercionDatos(SQLiteDatabase db) {
         // Insertamos los clientes
         db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email) VALUES (1, '11111111A', 'Filemón', 'Pí', '1234', 'filemon.pi@tia.es');");
         db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email) VALUES (2, '22222222B', 'Mortadelo', 'Ibáñez', '1234', 'mortadelo.ibanez@tia.es');");
@@ -155,8 +162,23 @@ public class MiBD extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, 0, 1423090980000, 'Recibo BMW Enero 2015', -256.65, 1, 10);");
         db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, 0, 1423263780000, 'Reintegro cajero', -70, 1, -1);");
         db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, 0, 1423263780000, 'Ingreso Nómina Ayuntamiento Valencia Enero 2015', 2150.5, 19, 1);");
+    }
 
+    public void insercionMovimiento(Movimiento m) {
+        db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, " + m.getTipo() + ", " + m.getFechaOperacion().getTime() + ", '" + m.getDescripcion() + "', " + m.getImporte() + ", " + m.getCuentaOrigen().getId() + ", " + m.getCuentaDestino().getId() + "); ");
+    }
 
+    public void actualizarSaldo(Cuenta c) {
+        db.execSQL("UPDATE cuentas SET saldoactual= " + c.getSaldoActual() + " WHERE banco='" + c.getBanco() + "' AND sucursal='" + c.getSucursal() + "' AND dc='" + c.getDc() + "' AND numerocuenta='" + c.getNumeroCuenta() + "';");
+    }
+
+    public boolean existeCuenta(String banco, String sucursal, String dc, String numCuenta) {
+        String sql = "SELECT numerocuenta FROM cuentas WHERE banco='" + banco + "' AND sucursal='" + sucursal + "' AND dc='" + dc + "' AND numerocuenta='" + numCuenta + "';";
+        Cursor c = db.rawQuery(sql, null);
+        if (c.getCount() > 0) {
+            return true;
+        }
+        return false;
     }
 
 }
