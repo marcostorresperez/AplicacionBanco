@@ -93,7 +93,15 @@ public class MiBancoOperacional {
             if (!miBD.existeCuenta(banco, sucursal, dc, numCuenta)) {
                 return 1;
             } else {
+                Movimiento movimientoDestino = new Movimiento(1, 1, movimientoTransferencia.getFechaOperacion(), movimientoTransferencia.getDescripcion(), movimientoTransferencia.getImporte(), movimientoTransferencia.getCuentaDestino(), movimientoTransferencia.getCuentaOrigen());
+
+                movimientoTransferencia.setImporte(-movimientoTransferencia.getImporte());
+
                 miBD.insercionMovimiento(movimientoTransferencia);
+                miBD.insercionMovimiento(movimientoDestino);
+
+                movimientoTransferencia.getCuentaOrigen().setSaldoActual(movimientoTransferencia.getCuentaOrigen().getSaldoActual()-movimientoTransferencia.getImporte());
+                movimientoTransferencia.getCuentaDestino().setSaldoActual(movimientoTransferencia.getCuentaDestino().getSaldoActual()+movimientoTransferencia.getImporte());
 
                 miBD.actualizarSaldo(movimientoTransferencia.getCuentaOrigen());
                 miBD.actualizarSaldo(movimientoTransferencia.getCuentaDestino());

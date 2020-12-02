@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/configuracion"
+        android:icon="@drawable/configuraciones"
+        android:title="Configuración" />
+    <item
+        android:id="@+id/general"
+        android:icon="@drawable/mundo"
+        android:title="General"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/cuentas"
+        android:icon="@drawable/billetera"
+        android:title="Cuentas"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/transferencias"
+        android:icon="@drawable/traslados"
+        android:title="Transferencias"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/clave"
+        android:icon="@drawable/llave"
+        android:title="Clave"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/descuentos"
+        android:icon="@drawable/porcentaje"
+        android:title="Descuentos"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/cajeros"
+        android:icon="@drawable/cajero"
+        android:title="Cajeros"
+        app:showAsAction="never" />
+</menu>

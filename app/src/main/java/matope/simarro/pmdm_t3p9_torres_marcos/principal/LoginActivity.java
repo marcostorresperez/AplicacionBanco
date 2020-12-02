@@ -12,6 +12,7 @@ import android.widget.Toast;
 import matope.simarro.pmdm_t3p9_torres_marcos.R;
 import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
+import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
             cliente.setClaveSeguridad(txtContra.getText().toString());
             MiBancoOperacional api = MiBancoOperacional.getInstance(getApplicationContext());
             Cliente resultado = api.login(cliente);
+            rellenarCliente(resultado,api);
             if (resultado != null) {
                 Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
                 intent.putExtra("cliente", resultado);
@@ -48,5 +50,13 @@ public class LoginActivity extends AppCompatActivity {
         } else
             Toast.makeText(getApplicationContext(), "Rellena todos los campos", Toast.LENGTH_LONG).show();
 
+    }
+
+    public Cliente rellenarCliente(Cliente c, MiBancoOperacional api) {
+        c.setListaCuentas(api.getCuentas(c));
+        for (Cuenta cuenta : c.getListaCuentas()) {
+            cuenta.setListaMovimientos(api.getMovimientos(cuenta));
+        }
+        return c;
     }
 }
