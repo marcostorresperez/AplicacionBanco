@@ -2,38 +2,51 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
         android:id="@+id/configuracion"
         android:icon="@drawable/configuraciones"
-        android:title="Configuración" />
+        android:title="Configuración"
+        app:showAsAction="always"/>
     <item
-        android:id="@+id/general"
-        android:icon="@drawable/mundo"
-        android:title="General"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/cuentas"
-        android:icon="@drawable/billetera"
-        android:title="Cuentas"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/transferencias"
-        android:icon="@drawable/traslados"
-        android:title="Transferencias"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/clave"
-        android:icon="@drawable/llave"
-        android:title="Clave"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/descuentos"
-        android:icon="@drawable/porcentaje"
-        android:title="Descuentos"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/cajeros"
-        android:icon="@drawable/cajero"
-        android:title="Cajeros"
-        app:showAsAction="never" />
+        android:id="@+id/expanded_menu"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Configuración"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/general2"
+               android:icon="@mipmap/mundo"
+                android:title="General "
+                app:showAsAction="always|withText" />
+
+            <item
+                android:id="@+id/cuentas"
+                android:icon="@mipmap/billetera"
+                android:title="Cuentas"
+                app:showAsAction="always|withText" />
+            <item
+                android:id="@+id/transferencias"
+                android:icon="@mipmap/traslados"
+                android:title="Transferencias"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/clave"
+                android:icon="@mipmap/llave"
+                android:title="Clave"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/descuentos"
+                android:icon="@mipmap/porcentaje"
+                android:title="Descuentos"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/cajeros"
+                android:icon="@mipmap/cajero"
+                android:title="Cajeros"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+
 </menu>

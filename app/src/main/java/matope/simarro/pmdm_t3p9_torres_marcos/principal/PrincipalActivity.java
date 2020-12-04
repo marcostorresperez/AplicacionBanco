@@ -20,7 +20,6 @@ public class PrincipalActivity extends AppCompatActivity {
 
     private TextView nombre;
     private Cliente cliente;
-    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +27,15 @@ public class PrincipalActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_principal);
 
-       /* Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-*/
+
         cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 
         nombre = findViewById(R.id.txtNombre);
-        nombre.setText(cliente.getNombre());
+        nombre.setText("Bienvenido: " + cliente.getNombre());
 
     }
 
@@ -71,7 +70,7 @@ public class PrincipalActivity extends AppCompatActivity {
         return true;
     }
 
-  /*  @Override
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         Intent intent;
@@ -101,6 +100,5 @@ public class PrincipalActivity extends AppCompatActivity {
         }
 
     }
-    */
 
 }
