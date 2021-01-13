@@ -6,8 +6,8 @@
     <item
         android:id="@+id/configuracion"
         android:icon="@drawable/configuraciones"
-        android:title="Configuración"
-        app:showAsAction="always"/>
+        android:title="@string/configuracion"
+        app:showAsAction="always" />
     <item
         android:id="@+id/expanded_menu"
         android:icon="@android:drawable/ic_dialog_dialer"
@@ -16,34 +16,34 @@
         <menu>
             <item
                 android:id="@+id/general2"
-               android:icon="@mipmap/mundo"
-                android:title="General "
+                android:icon="@mipmap/mundo"
+                android:title="@string/general"
                 app:showAsAction="always|withText" />
 
             <item
                 android:id="@+id/cuentas"
                 android:icon="@mipmap/billetera"
-                android:title="Cuentas"
+                android:title="@string/cuentas"
                 app:showAsAction="always|withText" />
             <item
                 android:id="@+id/transferencias"
                 android:icon="@mipmap/traslados"
-                android:title="Transferencias"
+                android:title="@string/transferencias"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/clave"
                 android:icon="@mipmap/llave"
-                android:title="Clave"
+                android:title="@string/clave"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/descuentos"
                 android:icon="@mipmap/porcentaje"
-                android:title="Descuentos"
+                android:title="@string/descuentos"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/cajeros"
                 android:icon="@mipmap/cajero"
-                android:title="Cajeros"
+                android:title="cajeros"
                 app:showAsAction="never" />
         </menu>
     </item>

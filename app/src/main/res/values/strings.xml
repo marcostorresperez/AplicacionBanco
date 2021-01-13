@@ -1,12 +1,66 @@
 <resources>
-    <string name="app_name">Banco Marcos Torres</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+
+    <string name="title_activity_login">Login Activity</string>
+    <!--  Claves  -->
+    <string name="app_name">Marcos Torres Bank</string>
+    <string name="cambioclave">Change Key</string>
+    <string name="claveactual">Current Key</string>
+    <string name="clavenueva">New Key</string>
+    <string name="clavenueva2">Confirm new key</string>
+
+    <!--  Cuentas  -->
+    <string name="cuentas">Account</string>
+    <string name="seleccionacuentas">Select one of your accounts</string>
+    <string name="movimientos">Movementss</string>
+    <string name="vaya">¡OH,WOW!</string>
+    <string name="nomovimientos">It seems that you have no movements in this account</string>
+
+    <!--  Login -->
+    <string name="inusuario">Enter your username</string>
+    <string name="inpass">Enter your key</string>
+    <string name="conectar">SIGN IN</string>
+    <string name="usuario">User</string>
+    <string name="pass">Key</string>
+
+    <!--  Main  -->
+    <string name="bienvenido">Welcome to your Bank</string>
+
+    <!--  Principal  -->
+    <string name="ebanca">E-BANK</string>
+    <string name="outsesion">SIGN OFF</string>
+
+    <!--  Transferencias  -->
+    <string name="dotransferencias">Make transfers</string>
+    <string name="origen">Root Account</string>
+    <string name="destino">Destination Account</string>
+    <string name="importe">Amount</string>
+    <string name="descripcion">description</string>
+    <string name="dojustificante">Generate receipt</string>
+    <string name="ok">OK</string>
+    <string name="cancelar">Cancel</string>
+
+    <!--  Menu  -->
+    <string name="configuracion">Settings</string>
+    <string name="general">General</string>
+    <string name="transferencias">Transfers</string>
+    <string name="clave">Key</string>
+    <string name="descuentos">Discounts</string>
+    <string name="cajeros">ATM</string>
+
+    <!--  Configuracion  -->
+    <string name="idioma">Language</string>
+    <string name="selidioma">Select a language</string>
+    <string name="origendatos">Data origin</string>
+    <string name="selorigen">
+choose database source</string>
+    <string name="preferencias">Preferencies</string>
+    <string name="musica">Music</string>
+    <string name="video">Video</string>
+    <string name="selmusica">
+Listen to the music while the app is running</string>
+    <string name="selvideo">
+See the video at the beginning of the app</string>
+    <string name="alias">Preferrid nickname</string>
+    <string name="selalias">Enter your preferred nickname</string>
+
 </resources>

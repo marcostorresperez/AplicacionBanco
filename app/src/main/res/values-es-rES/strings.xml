@@ -1,0 +1,64 @@
+<resources>
+
+    <string name="title_activity_login">Login Activity</string>
+    <!--  Claves  -->
+    <string name="app_name">Banco Marcos Torres</string>
+    <string name="cambioclave">Cambiar Clave</string>
+    <string name="claveactual">Clave Actual</string>
+    <string name="clavenueva">Clave Nueva</string>
+    <string name="clavenueva2">Confirme Clave Nueva</string>
+
+    <!--  Cuentas  -->
+    <string name="cuentas">Cuentas</string>
+    <string name="seleccionacuentas">Selecciona una de tus cuentas</string>
+    <string name="movimientos">Movimientos</string>
+    <string name="vaya">¡OH,VAYA!</string>
+    <string name="nomovimientos">Parece que no tienes movimientos en esta cuenta</string>
+
+    <!--  Login -->
+    <string name="inusuario">Introduzca su usuario</string>
+    <string name="inpass">Introduzca su contraseña</string>
+    <string name="conectar">CONECTAR</string>
+    <string name="usuario">Usuario</string>
+    <string name="pass">Clave</string>
+
+    <!--  Main  -->
+    <string name="bienvenido">Bienvenido a tu banco!</string>
+
+    <!--  Principal  -->
+    <string name="ebanca">Banca Electrónica</string>
+    <string name="outsesion">CERRAR SESIÓN</string>
+
+    <!--  Transferencias  -->
+    <string name="dotransferencias">Realizar Transferencias</string>
+    <string name="origen">Cuenta origen</string>
+    <string name="destino">Cuenta destino</string>
+    <string name="importe">Importe</string>
+    <string name="descripcion">Descripción</string>
+    <string name="dojustificante">Generar Justificante</string>
+    <string name="ok">OK</string>
+    <string name="cancelar">Cancelar</string>
+
+    <!--  Menu  -->
+    <string name="configuracion">Configuración</string>
+    <string name="general">General</string>
+    <string name="transferencias">Transferencias</string>
+    <string name="clave">Clave</string>
+    <string name="descuentos">Descuentos</string>
+    <string name="cajeros">Cajeros</string>
+
+    <!--  Configuracion  -->
+    <string name="idioma">Idioma</string>
+    <string name="selidioma">Seleccione un idioma</string>
+    <string name="origendatos">Origen de datos</string>
+    <string name="selorigen">Elegir el origen de base de datos</string>
+    <string name="preferencias">Preferencias</string>
+    <string name="musica">Musica</string>
+    <string name="video">Video</string>
+    <string name="selmusica">Escuchar la música mientras se ejecuta la aplicación</string>
+    <string name="selvideo">Ver el video al principio de la aplicación</string>
+    <string name="alias">Alias Preferido</string>
+    <string name="selalias">Introduzca su alias preferido</string>
+
+
+</resources>

@@ -75,6 +75,10 @@ public class PrincipalActivity extends AppCompatActivity {
 
         Intent intent;
         switch (item.getItemId()) {
+            case R.id.configuracion:
+                intent=new Intent(PrincipalActivity.this,PreferenciasActivity.class);
+                intent.putExtra("cliente",cliente);
+                startActivity(intent);
             case R.id.cajeros:
                 return true;
             case R.id.descuentos:

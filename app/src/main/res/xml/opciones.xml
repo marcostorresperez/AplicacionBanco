@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/configuracion">
+        <ListPreference
+            android:dialogTitle="@string/selidioma"
+            android:entries="@array/pais"
+            android:entryValues="@array/codigopais"
+            android:key="pais"
+            android:summary="@string/selidioma"
+            android:title="@string/idioma" />
+        <ListPreference
+            android:dialogTitle="@string/origendatos"
+            android:entries="@array/origen"
+            android:key="origen"
+            android:summary="@string/selorigen"
+            android:title="@string/origendatos" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preferencias">
+        <CheckBoxPreference
+            android:key="reproducirMusica"
+            android:summary="Escuchar la música mientras se ejecuta la aplicación"
+            android:title="Música" />
+
+        <CheckBoxPreference
+            android:key="reproducirVideo"
+            android:summary="Ver el video al principio de la aplicación"
+            android:title="Video" />
+
+        <EditTextPreference
+            android:dialogTitle="Alias preferido"
+            android:key="alias"
+            android:summary="Introduzca su alias preferido"
+            android:title="Alias preferido" />
+    </PreferenceCategory>
+
+
+    <MultiSelectListPreference
+        android:dialogTitle="Indicar Paises que se ha visitado"
+        android:entries="@array/pais"
+        android:entryValues="@array/codigopais"
+        android:key="paisesVisitados"
+        android:summary="Lista de paises visitados"
+        android:title="Paises visitados" />
+</PreferenceScreen>
