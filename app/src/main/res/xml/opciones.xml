@@ -19,27 +19,29 @@
     <PreferenceCategory android:title="@string/preferencias">
         <CheckBoxPreference
             android:key="reproducirMusica"
-            android:summary="Escuchar la música mientras se ejecuta la aplicación"
+            android:summary="@string/selmusica"
             android:title="Música" />
 
         <CheckBoxPreference
             android:key="reproducirVideo"
-            android:summary="Ver el video al principio de la aplicación"
+            android:summary="@string/selvideo"
             android:title="Video" />
 
         <EditTextPreference
-            android:dialogTitle="Alias preferido"
+            android:dialogTitle="@string/alias"
             android:key="alias"
-            android:summary="Introduzca su alias preferido"
-            android:title="Alias preferido" />
+            android:summary="@string/selalias"
+            android:title="@string/alias" />
     </PreferenceCategory>
 
 
-    <MultiSelectListPreference
-        android:dialogTitle="Indicar Paises que se ha visitado"
-        android:entries="@array/pais"
-        android:entryValues="@array/codigopais"
-        android:key="paisesVisitados"
-        android:summary="Lista de paises visitados"
-        android:title="Paises visitados" />
+    <!-- <MultiSelectListPreference
+         android:dialogTitle="Indicar Paises que se ha visitado"
+         android:entries="@array/pais"
+         android:entryValues="@array/codigopais"
+         android:key="paisesVisitados"
+         android:summary="Lista de paises visitados"
+         android:title="Paises visitados" />
+
+         -->
 </PreferenceScreen>

@@ -28,6 +28,8 @@
     <!--  Principal  -->
     <string name="ebanca">E-BANK</string>
     <string name="outsesion">SIGN OFF</string>
+    <string name="welcomes">Welcome:</string>
+
 
     <!--  Transferencias  -->
     <string name="dotransferencias">Make transfers</string>
@@ -51,15 +53,12 @@
     <string name="idioma">Language</string>
     <string name="selidioma">Select a language</string>
     <string name="origendatos">Data origin</string>
-    <string name="selorigen">
-choose database source</string>
+    <string name="selorigen">Choose database source</string>
     <string name="preferencias">Preferencies</string>
     <string name="musica">Music</string>
     <string name="video">Video</string>
-    <string name="selmusica">
-Listen to the music while the app is running</string>
-    <string name="selvideo">
-See the video at the beginning of the app</string>
+    <string name="selmusica">Listen to the music while the app is running</string>
+    <string name="selvideo">See the video at the beginning of the app</string>
     <string name="alias">Preferrid nickname</string>
     <string name="selalias">Enter your preferred nickname</string>
 

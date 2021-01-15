@@ -6,14 +6,17 @@ import androidx.appcompat.widget.Toolbar;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import matope.simarro.pmdm_t3p9_torres_marcos.R;
+import matope.simarro.pmdm_t3p9_torres_marcos.otros.Audio;
+import matope.simarro.pmdm_t3p9_torres_marcos.otros.Locales;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
 
 public class PrincipalActivity extends AppCompatActivity {
@@ -21,10 +24,24 @@ public class PrincipalActivity extends AppCompatActivity {
     private TextView nombre;
     private Cliente cliente;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String locale = sp.getString("pais", null);
+        if (locale != null) {
+            Locales.cambiarIdioma(this, locale);
+        }
+
+
+        boolean hayMusica = sp.getBoolean("reproducirMusica", false);
+        if (hayMusica) {
+            Intent i = new Intent(this, Audio.class);
+            startService(i);
+        }
         setContentView(R.layout.activity_principal);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -35,7 +52,15 @@ public class PrincipalActivity extends AppCompatActivity {
         cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 
         nombre = findViewById(R.id.txtNombre);
-        nombre.setText("Bienvenido: " + cliente.getNombre());
+
+        String alias = sp.getString("alias", null);
+        if (alias == "") {
+            nombre.setText(getString(R.string.welcomes) + cliente.getNombre());
+        }else{
+            nombre.setText(getString(R.string.welcomes) + alias);
+        }
+
+
 
     }
 
@@ -71,13 +96,27 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String alias = sp.getString("alias", null);
+        if (alias == "") {
+            nombre.setText(getString(R.string.welcomes) + cliente.getNombre());
+        }else{
+            nombre.setText(getString(R.string.welcomes) + " " + alias);
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         Intent intent;
         switch (item.getItemId()) {
             case R.id.configuracion:
-                intent=new Intent(PrincipalActivity.this,PreferenciasActivity.class);
-                intent.putExtra("cliente",cliente);
+                intent = new Intent(PrincipalActivity.this, PreferenciasActivity.class);
+                intent.putExtra("cliente", cliente);
                 startActivity(intent);
             case R.id.cajeros:
                 return true;

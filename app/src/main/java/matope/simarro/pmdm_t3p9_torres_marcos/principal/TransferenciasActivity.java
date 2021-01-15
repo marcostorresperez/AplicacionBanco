@@ -4,8 +4,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,14 +19,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import matope.simarro.pmdm_t3p9_torres_marcos.R;
 import matope.simarro.pmdm_t3p9_torres_marcos.bd.MiBancoOperacional;
-import matope.simarro.pmdm_t3p9_torres_marcos.dao.CuentaDAO;
+import matope.simarro.pmdm_t3p9_torres_marcos.otros.Locales;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cliente;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Cuenta;
 import matope.simarro.pmdm_t3p9_torres_marcos.pojo.Movimiento;
@@ -50,6 +51,14 @@ public class TransferenciasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String locale = sp.getString("pais", null);
+        if(locale!=null){
+            Locales.cambiarIdioma(this,locale);
+        }
+
         setContentView(R.layout.activity_transferencias);
         cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 

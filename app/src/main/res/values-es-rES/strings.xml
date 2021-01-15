@@ -28,6 +28,7 @@
     <!--  Principal  -->
     <string name="ebanca">Banca Electrónica</string>
     <string name="outsesion">CERRAR SESIÓN</string>
+    <string name="welcomes">Bienvenido:</string>
 
     <!--  Transferencias  -->
     <string name="dotransferencias">Realizar Transferencias</string>
