@@ -62,4 +62,7 @@
     <string name="alias">Preferrid nickname</string>
     <string name="selalias">Enter your preferred nickname</string>
 
+    <!--  Cajeros  -->
+    <string name="vacia">Empty</string>
+
 </resources>

@@ -138,7 +138,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/cajero" />
+                app:srcCompat="@drawable/cajero"
+                android:onClick="btnCajeros"/>
 
         </TableRow>
 

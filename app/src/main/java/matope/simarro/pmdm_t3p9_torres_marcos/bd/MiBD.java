@@ -30,6 +30,13 @@ public class MiBD extends SQLiteOpenHelper {
     private String sqlCreacionMovimientos = "CREATE TABLE movimientos ( id INTEGER PRIMARY KEY AUTOINCREMENT, tipo INTEGER, fechaoperacion LONG," +
             " descripcion STRING, importe FLOAT, idcuentaorigen INTEGER, idcuentadestino INTEGER);";
 
+    private String sqlCreacionCajeros = "CREATE TABLE cajeros(" +
+            " _id INTEGER PRIMARY KEY," +
+            " direccion TEXT NOT NULL," +
+            " latitud DOUBLE NOT NULL," +
+            " longitud DOUBLE NOT NULL," +
+            " zoom TEXT);";
+
 
     private static MiBD instance = null;
 
@@ -83,6 +90,7 @@ public class MiBD extends SQLiteOpenHelper {
         db.execSQL(sqlCreacionClientes);
         db.execSQL(sqlCreacionCuentas);
         db.execSQL(sqlCreacionMovimientos);
+        db.execSQL(sqlCreacionCajeros);
 
         insercionDatos(db);
         Log.i("SQLite", "Se crea la base de datos " + database + " version " + version);
@@ -96,10 +104,12 @@ public class MiBD extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS clientes");
             db.execSQL("DROP TABLE IF EXISTS cuentas");
             db.execSQL("DROP TABLE IF EXISTS movimientos");
+            db.execSQL("DROP TABLE IF EXISTS "+ Constantes.CAJEROS_TABLE);
             //y luego creamos la nueva tabla
             db.execSQL(sqlCreacionClientes);
             db.execSQL(sqlCreacionCuentas);
             db.execSQL(sqlCreacionMovimientos);
+            db.execSQL(sqlCreacionCajeros);
 
             insercionDatos(db);
             Log.i("SQLite", "Se actualiza versión de la base de datos, New version= " + newVersion);
@@ -162,6 +172,15 @@ public class MiBD extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, 0, 1423090980000, 'Recibo BMW Enero 2015', -256.65, 1, 10);");
         db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, 0, 1423263780000, 'Reintegro cajero', -70, 1, -1);");
         db.execSQL("INSERT INTO movimientos (rowid, id, tipo, fechaoperacion, descripcion, importe, idcuentaorigen, idcuentadestino) VALUES (null, null, 0, 1423263780000, 'Ingreso Nómina Ayuntamiento Valencia Enero 2015', 2150.5, 19, 1);");
+
+        //Insertamos los cajeros
+        db.execSQL("INSERT INTO " + Constantes.CAJEROS_TABLE + " (rowid, " + Constantes.FIELD_CAJEROS_ID + "," + Constantes.FIELD_DIRECCION + "," + Constantes.FIELD_LAT + "," + Constantes.FIELD_LNG + "," + Constantes.FIELD_ZOOM + ") VALUES (null,null,'Carrer del Clariano, 1, 46021 Valencia, Valencia, España',39.47600769999999,-0.3524475000000393,'');");
+        db.execSQL("INSERT INTO " + Constantes.CAJEROS_TABLE + " (rowid, " + Constantes.FIELD_CAJEROS_ID + "," + Constantes.FIELD_DIRECCION + "," + Constantes.FIELD_LAT + "," + Constantes.FIELD_LNG + "," + Constantes.FIELD_ZOOM + ") VALUES (null,null,'Avinguda del Cardenal Benlloch, 65, 46021 València, Valencia, España',39.4710366,-0.3547525000000178,'');");
+        db.execSQL("INSERT INTO " + Constantes.CAJEROS_TABLE + " (rowid, " + Constantes.FIELD_CAJEROS_ID + "," + Constantes.FIELD_DIRECCION + "," + Constantes.FIELD_LAT + "," + Constantes.FIELD_LNG + "," + Constantes.FIELD_ZOOM + ") VALUES (null,null,'Av. del Port, 237, 46011 València, Valencia, España',39.46161999999999,-0.3376299999999901,'');");
+        db.execSQL("INSERT INTO " + Constantes.CAJEROS_TABLE + " (rowid, " + Constantes.FIELD_CAJEROS_ID + "," + Constantes.FIELD_DIRECCION + "," + Constantes.FIELD_LAT + "," + Constantes.FIELD_LNG + "," + Constantes.FIELD_ZOOM + ") VALUES (null,null,'Carrer del Batxiller, 6, 46010 València, Valencia, España',39.4826729,-0.3639118999999482,'');");
+        db.execSQL("INSERT INTO " + Constantes.CAJEROS_TABLE + " (rowid, " + Constantes.FIELD_CAJEROS_ID + "," + Constantes.FIELD_DIRECCION + "," + Constantes.FIELD_LAT + "," + Constantes.FIELD_LNG + "," + Constantes.FIELD_ZOOM + ") VALUES (null,null,'Av. del Regne de València, 2, 46005 València, Valencia, España',39.4647669,-0.3732760000000326,'');");
+
+
     }
 
     public void insercionMovimiento(Movimiento m) {

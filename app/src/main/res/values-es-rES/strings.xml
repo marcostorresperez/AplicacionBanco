@@ -62,4 +62,8 @@
     <string name="selalias">Introduzca su alias preferido</string>
 
 
+    <!--  Cajeros  -->
+    <string name="vacia">Sin datos</string>
+
+
 </resources>

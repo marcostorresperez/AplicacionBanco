@@ -89,11 +89,18 @@ public class PrincipalActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void btnCajeros(View v){
+        Intent intent = new Intent(PrincipalActivity.this, CajerosActivity.class);
+        intent.putExtra("cliente", cliente);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
     @Override
     protected void onResume() {
